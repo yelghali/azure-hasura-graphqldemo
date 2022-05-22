@@ -15,7 +15,7 @@ resource "azurerm_app_service_plan" "my_service_plan" {
 
 
 resource "azurerm_app_service" "hasura_app_service_container" {
- name                    = "elhasuragraphqlserver"
+ name                        = "${random_string.myprefix.result}apphasura"
  location                = "France central"
  resource_group_name = azurerm_resource_group.terrazuragrp.name
  app_service_plan_id     = azurerm_app_service_plan.my_service_plan.id
