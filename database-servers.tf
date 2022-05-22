@@ -1,5 +1,5 @@
 resource "azurerm_postgresql_server" "terrazuraserver" {
-  name = var.server
+  name                        = "${random_string.myprefix.result}pgsqldemo"
   location = azurerm_resource_group.terrazuragrp.location
   resource_group_name = azurerm_resource_group.terrazuragrp.name
   sku_name = "B_Gen5_2"
