@@ -1,13 +1,12 @@
 data "azurerm_client_config" "current" {}
 
 #Create KeyVault ID
-resource "random_id" "kvname" {
-  byte_length = 5
-  prefix      = "keyvault"
+resource "random_string" "myprefix" {
+  length = 3
 }
 
 resource "azurerm_key_vault" "default" {
-  name                        = random_id.kvname.hex
+  name                        = "${random_string.myprefix.result}kv"
   location = azurerm_resource_group.terrazuragrp.location
   resource_group_name = azurerm_resource_group.terrazuragrp.name
   tenant_id           = "${data.azurerm_client_config.current.tenant_id}"
