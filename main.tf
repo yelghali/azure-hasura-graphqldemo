@@ -14,7 +14,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "terrazuragrp" {
   name = "hasuragraphql_grpdemo"
-  location = "francecentral"
+  location = "northeurope"
 }
 
 variable "username" {}
