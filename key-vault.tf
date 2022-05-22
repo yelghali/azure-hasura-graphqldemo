@@ -3,6 +3,10 @@ data "azurerm_client_config" "current" {}
 #Create KeyVault ID
 resource "random_string" "myprefix" {
   length = 3
+  upper   = false
+  number  = false
+  lower   = true
+  special = false
 }
 
 resource "azurerm_key_vault" "default" {
