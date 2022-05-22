@@ -1,7 +1,7 @@
 
 resource "azurerm_app_service_plan" "my_service_plan" {
  name                = "my_service_plan"
- location            = "France central"
+ location = azurerm_resource_group.terrazuragrp.location
  resource_group_name = azurerm_resource_group.terrazuragrp.name
  kind                = "Linux"
  reserved            = true
@@ -16,7 +16,7 @@ resource "azurerm_app_service_plan" "my_service_plan" {
 
 resource "azurerm_app_service" "hasura_app_service_container" {
  name                        = "${random_string.myprefix.result}apphasura"
- location                = "France central"
+ location = azurerm_resource_group.terrazuragrp.location
  resource_group_name = azurerm_resource_group.terrazuragrp.name
  app_service_plan_id     = azurerm_app_service_plan.my_service_plan.id
  https_only              = true
