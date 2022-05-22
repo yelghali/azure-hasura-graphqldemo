@@ -42,10 +42,9 @@ resource "azurerm_app_service" "hasura_app_service_container" {
 
       HASURA_GRAPHQL_SERVER_PORT = var.apiport
       HASURA_GRAPHQL_ENABLE_CONSOLE = true
-     HASURA_GRAPHQL_JWT_SECRET__ = "{  \"jwk_url\" : https://login.windows.net/common/discovery/keys,   \"claims_map\" : {     \"x-hasura-allowed-roles\" : { \"path\": \"$.roles\" }, \"x-hasura-default-role\": { \"path\": \"$.roles[0]\" },     \"x-hasura-user-id\": { \"path\": \"$.oid\" }   } }"
-      #HASURA_GRAPHQL_DATABASE_URL = "postgres://${var.username}%40${azurerm_postgresql_flexible_server.terrazuraserverflx.name}:${var.password}@${azurerm_postgresql_flexible_server.terrazuraserverflx.fqdn}:5432/${var.pgdatabase}"
+      HASURA_GRAPHQL_JWT_SECRET__ = "{  \"jwk_url\" : \"https://login.windows.net/common/discovery/keys\",   \"claims_map\" : {     \"x-hasura-allowed-roles\" : { \"path\": \"$.roles\" }, \"x-hasura-default-role\": { \"path\": \"$.roles[0]\" },     \"x-hasura-user-id\": { \"path\": \"$.oid\" }   } }"
       #HASURA_SQLSERVER_URL = "Driver={ODBC Driver 17 for SQL Server};Server=${azurerm_sql_server.sqlserver.fully_qualified_domain_name};Database=${var.sqlserverdb};UID=${var.sqluid};PWD=${var.sqlpwd};"
-
+      HASURA_GRAPHQL_ADMIN_SECRET__ = "coucouWorkshopTeam!!"
 }
 
 
